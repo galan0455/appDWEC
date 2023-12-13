@@ -1,0 +1,214 @@
+
+@import url('htps://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700;800;900&display=swap');
+@font-face {
+    font-family: titulo-pagina;
+    src: url(https://fonts.googleapis.com);
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Rubik',sans-serif;
+}
+h1,h2,h3,h4,h5,h6,p,a,input,textarea,ul{
+    margin: 0;
+    padding: 0;
+}
+
+ul{
+    list-style-type:none ;
+}
+a{
+    text-decoration: none;
+}
+header{
+    background-color: lightblue;
+}
+.titulo-pagina{
+    background-color: lightblue;
+    color: white;
+    font-family:'titulo-pagina';
+    text-align: center;
+    text-shadow: 1rem black;
+}
+
+.wrapper{
+    display: grid;
+    grid-template-columns: 1fr 4fr; 
+    background-color: lightblue;
+}
+aside{
+    padding: 2rem;
+    color: white;
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+}
+.logo{
+    font-weight: 400;
+    font-size: 2rem;
+
+}
+.menu{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    font-size: 2rem;
+
+}
+.inicio_sesion{
+    background-color: transparent;
+    color: white;
+    margin-left: 87%;
+    text-shadow: 20px;
+    font-size: 30px;
+    position: absolute;
+    margin-top: 10px;
+    border: 3px solid white;
+    border-radius: 5px;
+}
+.boton-menu {
+    background-color: transparent;
+    border: 0;
+    color: white;
+    cursor: pointer;
+    display: flex;
+    gap: 1rem;
+    font-weight: 600;
+    font-size: 1.5rem;
+}
+.boon-menu.active{
+    background-color: white;
+    color: lightblue;
+    width: 100%;
+    border-top-left-radius: 1rem;
+    border-bottom-left-radius: 1rem;
+    position: relative;
+    font-size: 2rem;
+}
+
+.boon-menu.active::before{
+    content: '';
+    position:absolute;
+    width: 1rem;
+    height: 2rem;
+    top: 0;
+    right: 0;
+    bottom: 100%;
+    border-bottom-right-radius: 1rem;
+    box-shadow: 0 1rem 0 white;
+}
+.boon-menu.active::after{
+    content: '';
+    position:absolute;
+    width: 1rem;
+    height: 2rem;
+    top: 100%;
+    right: 0;
+    border-top-right-radius: 1rem;
+    box-shadow: 0 -1rem 0 white;
+}
+.boton-carrito{
+    margin-top: 2rem;
+}
+.numerito{
+    background-color: white;
+    color: white;
+    padding: .25rem;
+    border-radius: .25rem;
+
+}
+.texto-footer{
+    color: grey;
+    font-size: 0.85rem;
+}
+main{
+    background-color: white;
+    margin: 1rem;
+    margin-left: 0rem;
+    border-radius: 2rem;
+    padding: 2rem;
+}
+.titulo-principal{
+    color: lightblue;
+    margin-bottom: 2rem;
+}
+.contenedor-productos{
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    gap: 1rem;
+}
+.producto-imagen{
+    max-width: 100%;
+    border-radius: 1rem;
+    background-color: transparent;
+}
+.producto-detalles{
+    background-color: aqua;
+    color: rgb(255, 255, 255);
+    padding: .5rem;
+    border-radius: 1rem;
+    margin-top: -2rem;
+    position: relative;
+    flex-direction: column;
+    gap: .25rem;
+
+}
+.producto-titulo{
+    font-size: 1rem;
+}
+.producto-agregar{
+    border: 0;
+    background-color: white;
+    color:lightblue ;
+    padding: .4rem;
+    text-transform: uppercase;
+    border-radius: 2rem;
+    cursor: pointer;
+    border: 2px solid white;
+    transition: background-color .2s, color .2s;
+}
+.producto-descripcion{
+    border: 0;
+    background-color: white;
+    color:lightblue ;
+    padding: .4rem;
+    text-transform: uppercase;
+    border-radius: 2rem;
+    cursor: pointer;
+    border: 2px solid white;
+    transition: background-color .2s, color .2s;
+}
+.producto-agregar:hover{
+    background-color: lightblue;
+    color: white;
+}
+.producto-descripcion:hover{
+    background-color: lightblue;
+    color: white;
+}
+.Foto_menu_usuario{
+    height: 70px;
+    width: 80px;
+    border-radius: 50px;
+    margin-left: 95%;
+    position: absolute;
+}
+
+/** Carrito **/
+.numerito{
+    color: black;
+}
+.Inicio_sesion{
+    height: 30px;
+}
+
+
+
+
+

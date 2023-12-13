@@ -1,0 +1,15 @@
+
+[
+    {"Id":"1","Foto":"./fotos/zapa1.avif","marca":"Nike","modelo":"air max 270","talla": 42 ,"color":"negro","stock":75,"precio":"150€"},
+    {"Id":"2","Foto":"./fotos/zapa2.avif","marca":"Nike","modelo":"cortez","talla": 42 ,"color":"blanco","stock":57,"precio":"100€"},
+    {"Id":"3","Foto":"./fotos/forum.webp","marca":"Adidas","modelo":"Forun high","talla": 42 ,"color":"blanco","stock":15,"precio":"120€"},
+    {"Id":"4","Foto":"./fotos/af3.jpg","marca":"Nike","modelo":"air force1 high","talla": 42 ,"color":"blanco","stock":25,"precio":"130€"},
+    {"Id":"5","Foto":"./fotos/forum2.avif","marca":"Adidas","modelo":"forum low ","talla":42,"color":"beige y blanco","stock":15,"precio":"120€"},
+    {"Id":"6","Foto":"./fotos/forum3.jfif","marca":"Adidas","modelo":"forum low beige","talla":42,"color":"beige y blanco","stock":1,"precio":"120€"},
+    {"Id":"7","Foto":"./fotos/5505.jpg","marca":"New Balance","modelo":"NB 530","talla":42,"color":"blancas y azules","stock":1,"precio":"100€"},
+    {"Id":"8","Foto":"./fotos/nb.jpg","marca":"New Balance","modelo":"NB MI574","talla":42,"color":"rojo","stock":1,"precio":"77€"},
+    {"Id":"9","Foto":"./fotos/jor4.jpg","marca":"Jordan","modelo":"one take 4","talla":42,"color":"blancas y azules","stock":1,"precio":"100€"},
+    {"Id":"10","Foto":"./fotos/jor3.jpg","marca":"Jordan","modelo":"air jordan 1","talla": 42 ,"color":"rojo y negro","stock":57,"precio":"150€"},
+    {"Id":"11","Foto":"./fotos/jor1.jpg","marca":"Jordan","modelo":"jordan retro 4","talla": 42 ,"color":"blanco y negro","stock":57,"precio":"220€"},
+    {"Id":"12","Foto":"./fotos/af4.jpg","marca":"Nike","modelo":"air force1 low","talla": 42 ,"color":"blanco","stock":57,"precio":"120€"}
+]

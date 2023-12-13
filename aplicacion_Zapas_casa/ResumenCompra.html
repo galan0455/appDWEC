@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./js/resumenCompra.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="./css/resumenCompra.css">
+
+</head>
+<body>
+    <div id="vuelta">
+        <button class="boton-vuelta" type="button" onclick="volver()">Pagina principal</button>
+    </div>
+    <div class="divTabla">
+        
+        
+        <table>
+            <tbody>
+                <tr>
+                    <td colspan="3"><h1>Precio total:</h1></td>
+                    <td colspan="5"><h1 id="PrecioFinal"></h1></td>
+                </tr>
+                <tr>
+                </tr>
+                <tr>
+                    <td rowspan="3" colspan="2"><h2>Metodos de pago:</h2></td>
+                    
+                    <tr>
+                        <td ><button class="mi-Boton" onclick="finalizar()">Tarjeta de credito <i class="bi bi-credit-card"></i></button></td>
+                        <td ><button class="mi-Boton" onclick="finalizar()">PayPal <i class="bi bi-paypal"></i></button></td>
+                        <td><button class="mi-Boton" onclick="finalizar()">apple pay <i class="bi bi-apple"></i></button></td>
+                    </tr>
+                    <td><button class="mi-Boton" onclick="finalizar()">Transferencia Bancaria <i class="bi bi-cash-coin"></i></button></td> 
+                    <td colspan="2"><button class="mi-Boton" onclick="finalizar()">Cripto monedas <i class="bi bi-currency-bitcoin"></i></button></td>
+                </tr>
+                <tr>
+                    
+                </tr>
+                <tr>
+                    
+                </tr>   
+                <tr>
+                </tr>  
+            </tbody>
+        </table>
+
+        
+    </div>
+
+</body>
+</html>
