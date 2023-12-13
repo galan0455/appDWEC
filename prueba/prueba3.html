@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body onclick="evento('hola')">
+    <p>hola buenas </p>
+
+
+
+    <script>
+        var listaJugadores=[
+  {
+    "nombre":"Pedro",
+    "apellidos":"Gomez Borrero",
+    "nif":"12345678C",
+    "correo":"pedro@gmail.com",
+    "comentarios":"Timido"
+  },{
+    "nombre":"Pablo",
+    "apellidos":"Gomez Borrero",
+    "nif":"22345678C",
+    "correo":"pablo@gmail.com",
+    "comentarios":"Muy joven"}
+]
+        function evento(parametro) {
+            x.style = "background-color:red;"
+            console.log(x);
+            console.log(parametro)
+        }
+        function guardar() {
+            listaJugadores.forEach((jugador)=>{
+                if (jugador.nombre=="Pedro") {
+                    let jugadorCompleto = JSON.stringify(jugador)
+                    localStorage.setItem("jugadro",jugadorCompleto)
+                }
+            })
+            
+        }
+        function recoger() {
+            let JugadorGuardado =localStorage.getItem("jugadro");
+            let listaJugadoresGuardado = Array (JSON.parse(JugadorGuardado))
+            listaJugadoresGuardado.forEach((jugador)=>{
+                alert(jugador);
+            })
+        }
+        onload = ()=>{
+            guardar()
+            recoger()
+        }
+    </script>
+</body>
+</html>

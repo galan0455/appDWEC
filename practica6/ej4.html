@@ -1,0 +1,20 @@
+EJERCICIO 4: Dado el siguiente código muestra cuántas imágenes tienen el atributo alt
+<!DOCTYPE html>
+<html>
+<head>
+<title>jQuery</title>
+<style>
+</style>
+<script src='https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js'></script>
+<script>
+    $(document().ready(()=> alert($("img[alt]").attr("src"))));
+    // hay que poner corchete spara recuperar propiedades
+</script>
+</head>
+<body>
+<h1>DEMO:</h1>
+<p><img src=" jquery_logo.png"/></p>
+<p><img src=" jquery_logo.png" alt="Texto ejemplo" /></p>
+<p><img src=" jquery_logo.png"/></p>
+</body>
+</html>

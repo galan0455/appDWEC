@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script>
+        //4: Añade al código anterior  que se muestre un mensaje si en la caja de texto “RUTA” no hay nada escrito y otro mensaje si hay alguna ciudad repetida
+        var diasValidos=["lunes","monday","martes","tuesday","miercoles","thursday","jueves","wednesday","viernes","friday","sabado","saturday","sunday","domingo"];
+        var mesesValidos=["enero","febrero","marzo","abril","mayo","junio","julio","agosto","septiembre","octubre","noviembre","diciembre"];
+        var ruta=[]
+        onload = ()=>{
+            
+        } 
+       function validarRuta() {
+        ruta = document.getElementById("ruta").value.split(",")
+        contador = 0;
+        if (ruta=="") {
+            document.getElementById("ruta").value= "No ha escrito nada en las rutas ";
+        }
+        while (contador<ruta.length) {
+            
+            for (let i = 0; i < ruta.length; i++) {
+                let ciudad = ruta[contador];
+                posicion = ruta.indexOf(ciudad);
+                if (posicion==-1) {
+                    alert("Hay una ciudad repetida");
+                }
+            }
+            contador++;
+        }
+        }
+
+        
+       
+    </script>
+</head>
+<body>
+<H1> PRACTICA 1: AGENCIA DE VIAJES</H1>
+<span>DIA INICIO: </span><input type="Text" id="diaInicio"><br/>
+<span>MES: </span><input type="Text" id="mes"><br/>
+<span>NUMERO DE DIAS: </span><input type="Text" id="numeroDias"><br/>
+<span>RUTA(lista ciudades separadas por coma)): </span><textarea id="ruta"></textarea><br/>
+<input type="button" value="CONTRATAR" onclick="validarRuta()"><br/>
+<input type="button" value="SORPRESA"><br/>
+<div id="AGENDA"></div>
+</body>
+</html>

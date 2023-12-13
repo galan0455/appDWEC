@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script>
+        var diasValidos=["lunes","monday","martes","tuesday","miercoles","thursday","jueves","wednesday","viernes","friday","sabado","saturday","sunday","domingo"];
+        var mesesValidos=["enero","febrero","marzo","abril","mayo","junio","julio","agosto","septiembre","octubre","noviembre","diciembre"];
+       onload = ()=>{
+        
+       } 
+       function Validar_mes() {
+        let mes = document.getElementById("mes").value;
+        let posicion = mesesValidos.indexOf(mes);
+        
+        if (posicion==-1) {
+            document.getElementById("mes").value="No existe ese mes";
+        }
+       }
+    </script>
+</head>
+<body>
+<H1> PRACTICA 1: AGENCIA DE VIAJES</H1>
+<span>DIA INICIO: </span><input type="Text" id="diaInicio"><br/>
+<span>MES: </span><input type="Text" id="mes"><br/>
+<span>NUMERO DE DIAS: </span><input type="Text" id="numeroDias"><br/>
+<span>RUTA(lista ciudades separadas por coma)): </span><textarea id="ruta"></textarea><br/>
+<input type="button" value="CONTRATAR" onclick="Validar_mes()"><br/>
+<input type="button" value="SORPRESA"><br/>
+<div id="AGENDA"></div>
+</body>
+</html>

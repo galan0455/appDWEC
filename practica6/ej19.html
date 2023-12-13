@@ -1,0 +1,15 @@
+EJERCICIO 19: Indica qué hacen las siguientes líneas:
+
+    • $('#myList li:first').appendTo('#myList'); coge el primer li de mylist y lo cambia al ultimo 
+
+    • $('#myList li:first').clone().appendTo('#myList'); hace lo mismo pero hace una copiua del primero 
+
+    • $('ul').append('<li>item de la lista</li>'); a todos los ul les añade item de la lista 
+
+    • var myItems = [], $myList = $('#myList'); 
+for (var i=0; i<100; i++) {
+myItems.push('<li>item ' + i + '</li>');
+}   localiza el evento y le añade li 
+$myList.append(myItems.join(''));
+
+    • $('#myDiv p:first').html('Nuevo <strong>primer</strong> párrafo'); coge el primer parrafo del #myDiv  y reemplaza con otro 

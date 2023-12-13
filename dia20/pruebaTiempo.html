@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div#caja{
+            width: 300px;
+            height: 300px;
+            background-color: purple;
+            border: 2px solid black;
+            position: absolute;
+            top: 0px;
+            left: 0px;
+
+        }
+        div#caja2{
+            width: 300px;
+            height: 300px;
+            background-color: purple;
+            border: 2px solid black;
+            position: absolute;
+            top: 0px;
+            left: 400px;
+
+        }
+    </style>
+    <script>
+        let contador=0;
+        let intervalo=setInterval(cambiarPosicion,1000);
+        let intervalo2=setTimeout(cambiarPosicion2,1000);
+        setInterval(cambiarPosicion,1000);
+        function cambiarPosicion() {
+            let caja = document.getElementById("caja")
+            caja.style.top = `${contador}px`;
+            contador+=10;
+            caja.style.left= `${contador}px`;
+            if (contador==200) {
+                clearInterval(intervalo)
+            }
+
+        }
+        
+        function cambiarPosicion2() {
+            let caja = document.getElementById("caja2")
+            caja.style.top = `${contador}px`;
+            caja.style.left= `${contador}px`;
+            contador+=10;
+            setTimeout(cambiarPosicion2,1000);
+
+        }
+    </script>
+</head>
+<body>
+    <div id="caja">
+        Hola
+    </div>
+    <div id="caja2">
+        adios
+    </div>
+</body>
+</html>

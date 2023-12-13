@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function ampliar() {
+            let ancho = document.getElementsByTagName("img")[0].width;
+            document.getElementsByTagName("img")[0].width = ancho * 2;
+        }
+        function cambiarColor() {
+            document.getElementsByTagName("div")[0].style.backgroundColor="red";
+            alert(2)
+        }
+        function AddEvento() {
+            document.getElementsByTagName("img")[0]
+            .addEventListener("mouseover",ampliar)
+        }
+        onload=function(){
+            var listaInputs=[...document.getElementsByTagName("input")]
+                listaInputs.forEach((input)=>{
+                    input.addEventListener("blur",()=>{
+                    alert (i)
+                    mostrarId(listaInputs[i])
+                })
+            })
+                
+                
+            
+            document.getElementById("campo1").addEventListener("blur",()=>mostrarId("campo1"));
+            document.getElementById("campo2").addEventListener("blur",()=>mostrarId("campo2"));
+            document.getElementById("campo3").addEventListener("blur",()=>mostrarId("campo3"));
+            document.getElementById("campo4").addEventListener("blur",()=>mostrarId("campo4"));
+            document.getElementById("campo5").addEventListener("blur",()=>mostrarId("campo5"));
+        }
+        function mostrarId(texto) {
+            alert (texto)
+        }
+    </script>
+</head>
+
+<body>
+    <div style="background-color: blueviolet;" >
+        <img src="https://media.gettyimages.com/id/53219422/es/foto/fernando-alonso-of-spain-and-renault-poses-with-models-lucy-pinder-and-michelle-marsh-for-the.jpg?s=1024x1024&w=gi&k=20&c=hbZ3oriqhH8QUcTBiQwWrXiYOU78nai84k7EhYAdzc4=" height="300px" width="300px">
+    </div>
+    <button id="botonEvento" onclick="AddEvento()">Añadir Evento</button>
+    <p>
+        <span>Campo1:</span><input type="text"  id="campo1">
+    </p>
+    <p>
+        <span>Campo2:</span><input type="text"  id="campo2">
+    </p>
+    <p>
+        <span>Campo3:</span><input type="text"  id="campo3">
+    </p>
+    <p>
+        <span>Campo4:</span><input type="text"  id="campo4">
+    </p>
+    <p>
+        <span>Campo5:</span><input type="text"  id="campo5">
+    </p>
+</body>
+
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+            function ValidarFecha() {
+                let campoFecha = document.getElementById("fecha").value
+                var arrfecha = campoFecha.split("/")
+                let dia = arrfecha[0]
+                let mes = arrfecha[1]-1
+                let anio = arrfecha[2]
+                var Fecha = new Date(anio,mes,dia)
+                if (Fecha.getDate()!= dia ||
+                Fecha.getMonth()!=mes ||
+                Fecha.getFullYear()!=anio) {
+                    alert("fecha no valida")
+                }else{
+                    alert("fecha valida")
+                }
+            }
+            function ComprobarMayor() {
+                let campoFecha = document.getElementById("fecha").value
+                var arrfecha = campoFecha.split("/")
+                let dia = arrfecha[0]
+                let mes = arrfecha[1]-1
+                let anio = arrfecha[2]
+                var Fecha = new Date(anio,mes,dia)
+                let fechaAc = new Date()
+                if (Fecha<fechaAc) {
+                    alert("La fecha actual es mayor")
+                }else{
+                    alert("La fecha actual es menor")
+                }
+            }
+    </script>
+</head>
+<body>
+    <input type="text" id="fecha" placeholder="dd/mes/año">
+    <button type="button" id="boton" onclick="ValidarFecha()">Pulsar</button>
+    <button type="button" id="boton" onclick="ComprobarMayor()">Pulsar</button>
+</body>
+</html>

@@ -1,0 +1,32 @@
+[
+    {
+        "idComida":1,
+        "nombreCorto":"Lentejas",
+        "descripcion":"Lentejas con chorizo",
+        "precio":7.50
+    },
+    {
+        "idComida":2,
+        "nombreCorto":"Fabada",
+        "descripcion":"Fabada con chorizo",
+        "precio":1.50
+    },
+    {
+        "idComida":3,
+        "nombreCorto":"Macarrones",
+        "descripcion":"Macarrones con chorizo",
+        "precio":2.50
+    },
+    {
+        "idComida":4,
+        "nombreCorto":"spaguettis",
+        "descripcion":"spaguettis con chorizo",
+        "precio":3.50
+    },
+    {
+        "idComida":5,
+        "nombreCorto":"tortellini",
+        "descripcion":"tortellini con chorizo",
+        "precio":5.50
+    }
+]

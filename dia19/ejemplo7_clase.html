@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var otraVentana;
+        onload= ()=>{
+            document.getElementsByTagName("button")[0].addEventListener("click",paginaCambio)     
+            document.getElementsByTagName("button")[1].addEventListener("click",mostrarImagen)   
+
+        }
+        function paginaCambio() {
+            let texto = document.getElementById("texto").value;
+            comprobarTexto(texto)
+
+        }
+        function comprobarTexto(texto){
+            if (texto=="NUEVO" || texto=="nuevo") {
+                otraVentana=window.open("http://www.madrid.org/");
+            }
+            else if(texto=="RECARGAR" || texto=="recargar"){
+                otraVentana=window.open("http://localhost:8080/dia19/ejemplo7_clase.html");
+            }
+            else if(texto=="OTRA" || texto=="otra"){
+                otraVentana=window.open("http://www.madrid.org","","fullscreen=yes")
+            }else{
+                document.body.innerHTML="Los datos introducidos no son correctos "
+            }
+        }
+        function mostrarImagen() {
+            otraVentana=open("https://estaticos-cdn.sport.es/clip/0f370ed6-86ca-4c81-a518-30014f75694d_16-9-aspect-ratio_default_0.jpg"," ","fullscreen=yes","width=100%");
+        }
+    </script>
+</head>
+<body>
+    <input type="text" id="texto">
+    <button type="button">Comprobar</button>
+    <button type="button">Foto</button>
+</body>
+</html>

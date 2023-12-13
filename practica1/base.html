@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script>
+        var diasValidos=["lunes","monday","martes","tuesday","miercoles","thursday","jueves","wednesday","viernes","friday","sabado","saturday","sunday","domingo"];
+        var mesesValidos=["enero","febrero","marzo","abril","mayo","junio","julio","agosto","septiembre","octubre","noviembre","diciembre"];
+        function quitaAcentos(str){
+          str=str.replace(/á/g,"a");
+          str=str.replace(/é/g,"e");
+          str=str.replace(/í/g,"i");
+          str=str.replace(/ó/g,"o");
+          str=str.replace(/ú/g,"u");
+          return str;
+        }
+        
+        function ejercicio1(){
+          var diaLeido=quitaAcentos(document.getElementById("diaInicio").value.trim().toLowerCase());
+          if (diaLeido=="" || diasValidos.indexOf(diaLeido)==-1){
+              alert("EL CAMPO DIA INICIO NO ES VALIDO");
+          seleccionarValor("diaInicio");
+          }
+        
+        }
+        
+        // Para seleccionar texto de una caja de texto
+        function seleccionarValor(idCaja) {
+        caja = document.getElementById(idCaja);
+        longitud = caja.value.length;
+        
+        // si admite el navegador este método
+            if (caja.setSelectionRange) {
+        caja.focus();
+                caja.setSelectionRange (0, longitud);
+            } else if (caja.createTextRange) {
+            // para versiones antiguas del navegador
+                var range = caja.createTextRange() ;
+                range.collapse(true);
+                range.moveEnd('character', 0);
+                range.moveStart('character', longitud);
+                range.select();
+            }
+        }
+        
+        </script>
+</head>
+<body>
+<H1> PRACTICA 1: AGENCIA DE VIAJES</H1>
+<span>DIA INICIO: </span><input type="Text" id="diaInicio"><br/>
+<span>MES: </span><input type="Text" id="mes"><br/>
+<span>NUMERO DE DIAS: </span><input type="Text" id="numeroDias"><br/>
+<span>RUTA(lista ciudades separadas por coma): </span><textarea id="ruta"></textarea><br/>
+<input type="button" value="CONTRATAR"><br/>
+<input type="button" value="SORPRESA"><br/>
+<div id="AGENDA"></div>
+</body>
+</html>

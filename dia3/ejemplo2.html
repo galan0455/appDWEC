@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var listaFotos=[
+            "perro.png",
+            "coche2.png",
+            "coche3.png",
+            "coche4.png",
+            "coche5.png",
+            "coche6.png",
+        ]
+        window.onload = function () {
+            for (let i = 0; i < listaFotos.length; i++) {
+                document.body.innerHTML += `<p><img src="${listaFotos}" /></p>`
+
+                
+            }
+        }
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

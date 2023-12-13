@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /*onload=()=>{
+            console.log(document.images)
+            console.log(document.body)
+            console.log(document.head)
+            console.log(document.title)
+            console.log(document.cookie)
+            //Primera forma de localizar un div 
+            //let div1=document.body.getElementsByTagName("div")[0];
+            div1=document.getElementById("");
+            let div1=document.body.children[0];
+            [...div1.children].forEach((hijo) => {
+                hijo.innerHTML.toLocaleUpperCase
+            });
+            let listaparrafos = div1.getElementsByTagName("p")[0];
+
+            div1.parentNode.parentNode.parentNode
+        }
+        */
+       onload=()=>{
+        console.log(document.querySelectorAll("img[alt]"));
+        console.log(document.querySelectorAll("img[alt='foto1 de un perro '"));
+        //console.log(document.querySelectorAll("img[alt$="gato"]"));
+        //outerHTML tambien te cambia el documento previamente escrito;
+        document.querySelector("p").outerHTML="<h1>hola</h1>"
+        document.body.getElementsByTagName("button")[0].addEventListener("click",);
+        document.querySelectorAll("p")[1].innerHTML="<h1>Adios</h1>";
+        //location.href=direccion
+       }
+    </script>
+</head>
+<body>
+    <div >
+        <p>hola</p>
+        <p>adios</p>
+        <p>buenas</p>
+    </div>
+    <div style="position: absolute;top: 500px;">
+        <img src="./foto1.jpeg">
+        <p>Esta es la foto 1 </p>
+    </div>
+    <div>
+        <img src="./foto1.jpeg" alt>
+    </div>
+    <div >  
+        <img src="./foto1.jpeg" alt="foto1">
+    </div>
+    <button type="button">Pulsame</button>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+    <title>Ejercicio 4</title>
+    <script type="text/javascript">
+        var nuevaVentana;
+        
+        function abrirVentana() {
+            var top=(screen.height-300/2);
+            var izquierda=(screen.width-300/2);
+            nuevaVentana=window.open("",width=300,height=300,top="+top + left="+izquierda);
+            var enlace=nuevaVentana.document.createElement("a");
+            enlace.href=nuevaVentana.document.createTextNode("Cerrar");
+            enlace.appendChild(texto);
+            nuevaVentana.document.body.appendChild(enlace);
+            var parrafo=nuevaVentana.document.createElement("p");
+            var texto=nuevaVentana.document.createTextNode("Esto es un parrafo ");
+            parrafo.appendChild(texto);
+            nuevaVentana.document.body.appendChild(parrafo);
+        }
+        window.onload = function () {
+            abrirVentana();
+        }
+    </script>
+
+</head>
+
+<body>
+</body>
+
+</html>

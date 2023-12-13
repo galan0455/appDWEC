@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function cambiarColor() {
+
+            let color = document.getElementById("color").value;
+            switch (color) {
+                case color = "rojo":
+                    color = "red"
+                    break;
+                case color = "azul":
+                    color = "blue"
+                    break;
+                case color = "verde":
+                    color = "green"
+                    break;
+
+                default:
+                    alert("error")
+                    break;
+            }
+            document.getElementsByTagName("div")[0].style.backgroundColor = color
+        }
+    </script>
+</head>
+
+<body>
+    <div style="width: 300px;height: 300px;border:2px solid black;">
+
+    </div>
+    <br>
+    <button type="button" onclick="cambiarColor()">pulsame</button> <br>
+    COLOR:<input type="text" id="color"><br>
+    COLOR2:<select>
+        <option value="azul"></option>
+        <option value="rojo"></option>
+        <option value="verde"></option>
+        <option value="rosa"></option>
+    </select>
+
+</html>

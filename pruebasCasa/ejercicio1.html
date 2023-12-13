@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function hola() {
+            alert("hola")
+        }
+        onload=()=>{
+            hola();
+            
+        }
+        function cajaTexto() {
+            let caja = document.getElementById("caja").value;
+            alert(caja)
+            document.getElementById("caja").value= "hola que tal estas ";
+        }
+        let elemento = {
+            "nombre":"javier",
+            "apellido":"galan",
+        }
+        console.log(elemento)
+    </script>
+</head>
+<body>
+    <input type="text" id="caja">
+    <input type="text" >
+    <input type="text">
+    <input type="submit" value="Enviar" onclick="cajaTexto()">
+</body>
+</html>

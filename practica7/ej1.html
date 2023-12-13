@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+    <script>
+        onload = () =>{
+            crearContenido()
+        }
+            function crearContenido() {
+                
+                let tabla=document.createElement("table");
+                document.body.appendChild(tabla);
+                let tbody = document.createElement("tbody")
+                tabla.appendChild(tbody);
+                tabla.style.border = "2px solid black";
+                tabla.style.border = "2px solid black";
+                for (let i = 0; i < 10; i++) {   
+                    let tr = document.createElement("tr");
+                    tr.style.border = "2px solid black";
+                    tbody.appendChild(tr);
+                    for (let j = 0; j < 10; j++) {
+                        let td=document.createElement("td");
+                    tr.appendChild(td);
+                    td.style.border = "2px solid black";
+                    if (i==j) {
+                        td.innerHTML = "X"
+                    }
+                }
+            }
+            for (let i = 0; i < 20; i++) {
+                let boton = document.createElement("button");
+                boton.type="button";
+                boton.innerHTML="boton"+i
+                document.body.appendChild(boton);
+            }
+            for (let i = 0; i < 20; i++) {
+                let boton = document.createElement("button");
+                boton.type="button";
+                boton.innerHTML="boton"+i
+                tbody.appendChild(boton);
+                for (let j = 0; j < 3; j++) {
+                    let parrafo = document.createElement("p");
+                    parrafo.textContent="parrafo";
+                    
+                }
+                
+            }
+        }
+    
+            
+
+    </script>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>

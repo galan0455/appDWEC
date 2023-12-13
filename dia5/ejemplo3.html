@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+    <link rel="shortcut icon" href="">
+
+    <script>
+        function comprobarL() {
+            let cajaTexto1=document.getElementById("frase1");
+            let errorCajaTexto1=document.getElementById("errorFrase1");
+            if (cajaTexto1.value
+                    .trim()
+                    .length > 20) {
+                cajaTexto1.style.border="2px solid red"
+                errorCajaTexto1.style.display="block"                
+            }else {
+                cajaTexto1.style.border="2px solid grey"
+                errorCajaTexto1.style.display="none"  
+            }
+           
+              
+                
+                
+        }
+        function comprobarApro(textoAprobar) {
+            let texto1=document.getElementById("frase2").value;
+            if (texto1.includes(textoAprobar)) {
+                alert("Si se incluye")
+            }
+        }
+        function devolverTrozo() {
+            let texto1=document.getElementById("frase2").value;
+            alert(texto1.substring(3,6));
+            alert(texto1.substr(3,3));
+            alert(texto1.slice(3,6));
+        }
+        function encontrarXYZ() {
+            let texto1=document.getElementById("frase2").value;
+            let posiXYZ=texto1.indexOf("xyz");
+            alert (posiXYZ);
+            if (texto1.includes("xyz")) {
+                alert(texto1.substring(posiXYZ,posiXYZ+8))
+
+            }else{
+                alert("Error no contiene la palabra xyz ")
+            }
+        }
+    </script>
+</head>
+
+<body>
+
+    <H1> USO DE STRINGS</H1>
+
+    <span>FRASE1: </span><input type="Text" id="frase1">
+    <span id="errorFrase1" style="display: none;*">ERROR DEMASIADO AMPLIO</span><br />
+
+
+
+    <span>FRASE2: </span><textarea id="frase2"></textarea><br />
+
+    <input type="button" onclick="comprobarL()" value="boton 1">
+    <input type="button" value="comprobar2" onclick="comprobarApro('aprobado')">
+    <input type="button" onclick="devolverTrozo()" value="boton3">
+    <input type="button"onclick="encontrarXYZ()" value="boton4">
+
+   
+</body>
+
+</html>

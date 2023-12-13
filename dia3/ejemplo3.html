@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var contador=0;
+        var listaNum=[3,54,98,2,7,9,11]
+        var suma=0;
+        var listaAux=[];
+        for (i = 0; i < listaNum.length; i++) {
+            if (listaNum[i]%2!=0) {
+                document.body.innerHTML +=`<p>${listaNum[i]}</p>`
+                contador++;
+                listaAux.push(listaNum[i])
+            }
+            suma=listaNum[i]+suma;
+            
+            
+        }
+        listaAux.sort((a,b)=>{
+            if(a>b)return -1
+            else return 1
+        })
+        document.body.innerHTML+=`<h1>${contador}</h1>`
+        document.body.innerHTML+=`<h1>el resultado es ${suma}</h1>`
+        document.body.innerHTML+=`<p>el resultado es ${listaAux[1]}</p>`
+        
+
+    </script>
+</body>
+</html>

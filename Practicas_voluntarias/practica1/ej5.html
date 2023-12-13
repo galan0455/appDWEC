@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script>
+        //4: Añade al código anterior  que se muestre un mensaje si en la caja de texto “RUTA” no hay nada escrito y otro mensaje si hay alguna ciudad repetida
+        var diasValidos=["lunes","monday","martes","tuesday","miercoles","thursday","jueves","wednesday","viernes","friday","sabado","saturday","sunday","domingo"];
+        var mesesValidos=["enero","febrero","marzo","abril","mayo","junio","julio","agosto","septiembre","octubre","noviembre","diciembre"];
+        var ruta=[]
+        onload = ()=>{
+            
+        } 
+        function correcto() {
+            let divAgenda = document.getElementById("AGENDA");
+            let filas = document.getElementById("numeroDias").value;
+            ruta = document.getElementById("ruta").value.split(",")
+            let celdas = ruta.length;
+            let contenido=0;
+            contenido += "<table style = 'border:2px solid black'>";
+            contenido += "<tbody>";
+            for (let i = 0; i < filas; i++) {
+                contenido += "<tr>Hola";
+                for (let j = 0; j < celdas; j++) {
+                    contenido += "<td>"+j+"</td>";
+                }
+                contenido += "</tr>";
+                
+            }
+            contenido += "</tbody>";
+            contenido += "</table>";
+            divAgenda.innerHTML += contenido
+        }
+        
+       
+    </script>
+</head>
+<body>
+<H1> PRACTICA 1: AGENCIA DE VIAJES</H1>
+<span>DIA INICIO: </span><input type="Text" id="diaInicio"><br/>
+<span>MES: </span><input type="Text" id="mes"><br/>
+<span>NUMERO DE DIAS: </span><input type="Text" id="numeroDias"><br/>
+<span>RUTA(lista ciudades separadas por coma)): </span><textarea id="ruta"></textarea><br/>
+<input type="button" value="CONTRATAR" onclick="correcto()"><br/>
+<input type="button" value="SORPRESA"><br/>
+<div id="AGENDA"></div>
+</body>
+</html>

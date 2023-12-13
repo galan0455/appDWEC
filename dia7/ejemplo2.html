@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table,td,tr{
+            border: 2px solid black;
+        }
+    </style>
+    <script>
+        var Playlist = [];
+        Playlist.push(["Quevedo", "ESPAÑOL", "regueton", 500])
+        Playlist.push(["Arcangel", "ESPAÑOL", "Flamenco", 40])
+        Playlist.push(["Kase O", "Rumano ", "Rap", 100])
+        Playlist.push(["Kase 1 ", "ESPAÑOL", "Flamenco", 10])
+        Playlist.push(["Kase 3", "truco ", "Rumano", 50])
+
+        onload = function () {
+            pintarSelect(Playlist);
+        }
+
+        function añadirCa() {
+            let cantante = document.getElementById("Cantantes").value.trim();
+            let Pais = document.getElementById("Pais").value.trim();
+            let tipo = document.getElementById("Tipo").value.trim();
+            Playlist.push([cantante, Pais, tipo]);
+            pintarSelect(Playlist);
+        }
+        function pintarSelect(lista) {
+            let selectPlaylist = document.getElementById("Playlist");
+            selectPlaylist.innerHTML = " ";
+            lista.forEach((grupo) => {
+                selectPlaylist.innerHTML += `<option>${grupo.join("-")}</option>`;
+            })
+
+        }
+        function eliminarUlti() {
+            Playlist.pop();
+            pintarSelect(PlaylistPlaylist);
+        }
+        function eliminarPri() {
+            Playlist.shift();
+            pintarSelect(Playlist);
+        }
+        function eliminarEspeci() {
+            // arreglar mas tarde 
+
+            let nombreGrupo = document.getElementById("Cantantes").value.trim();
+            //let posicion=listaGrupos.indexOf(nombreGrupo);
+            let posicion = Playlist.findIndex((Cantantes) =>
+                Cantantes[0].toLowerCase().includes(nombreGrupo)
+
+            );
+            if (posicion != 1) {
+                Playlist.splice(posicion, 1)
+            }
+            pintarSelect(Playlist)
+        }
+        function ordenarPlaylistPorNombreAscendente() {
+            Playlist.sort((a, b) => {
+                if (a[0] > b[0]) return 1
+                else return -1
+            })
+            pintarSelect(Playlist);
+
+
+        }
+        function ordenarPlaylistPorNombreDescendente() {
+            Playlist.sort((a, b) => {
+                if (a[0] > b[0]) return -1
+                else return 1
+            })
+            pintarSelect(Playlist);
+        }
+        function ordenarPlaylistPorTipoAscendente() {
+            Playlist.sort((a, b) => {
+                if (a[1] > b[1]) return 1
+                else return -1
+            })
+            pintarSelect(Playlist);
+        }
+        function ordenarPlaylistPortipoDescendente() {
+            Playlist.sort((a, b) => {
+                if (a[1] > b[1]) return -1
+                else return 1
+            })
+            pintarSelect(Playlist);
+        }
+        function PintarEspanioles() {
+            let listaFiltrada = Playlist.filter((cantante) => cantante[1].toLowerCase() == "español");
+            pintarSelect(listaFiltrada);
+        }
+        function MostrarTresPrimeros() {
+            let LTroceada = Playlist.slice(0, 3);
+            pintarSelect(LTroceada);
+        }
+        // BOTON QUE MUESTRE LOS DOS PRIMEROS ESPAÑOLES 
+        function MostrarTresPrimerosEspañoles() {
+            let listaFiltrada = Playlist.filter((cantante) => cantante[1].toLowerCase() == "español").slice(0, 2);
+
+            pintarSelect(listaFiltrada);
+
+
+        }
+        function MostrarTresPrimerosOrdenalfabetico() {
+            let listaFiltrada = Playlist.filter((cantante) => cantante[1].toLowerCase() == "español")
+                .sort((a, b) => {
+                    if (a[0] > b[0]) return 1
+                    else return -1
+                })
+                .slice(0, 1);
+
+            pintarSelect(listaFiltrada);
+        }
+        function EmitirFactura(tabla) {
+            Contenido = "<table><tbody>";
+            tabla.forEach((indice) => {
+                Contenido += "<tr>";
+                Contenido += `<td>Cantante ${indice[0]} Ganancia ${indice[3]}</td>`
+                Contenido += "</tr>";
+            });
+            Contenido += "</tbody></table>"
+            document.body.innerHTML += Contenido;
+
+        }
+        function incrementarVentas() {
+            
+            EmitirFactura(cambiada)
+        }
+
+
+
+    </script>
+</head>
+
+<body>
+    <label>Playlist</label>
+    <input type="text" id="Cantantes">
+    <label>Pais</label>
+    <input type="text" id="Pais">
+    <label>Tipo</label>
+    <input type="text" id="Tipo">
+    <br>
+    <p><input type="button" value="Añadir" onclick="añadirCa()">
+        <input type="button" value="Eliminar Ultimo" onclick="eliminarUlti()">
+        <input type="button" value="Eliminar primero" onclick="eliminarPri()">
+        <input type="button" value="Eliminar" onclick="eliminarEspeci()"> <br>
+        <input type="button" value="OrdenarDesc" onclick="ordenarPlaylistPorNombreDescendente()">
+        <input type="button" value="ordenarAsc" onclick="ordenarPlaylistPorNombreAscendente()">
+    </p>
+    <input type="button" value="PintarEspanioles" onclick="PintarEspanioles()">
+    <input type="button" value="MostrarTresPrimeros" onclick="MostrarTresPrimeros()">
+    <input type="button" value="MostrarTresPrimerosEspañoles" onclick="MostrarTresPrimerosEspañoles()">
+    <input type="button" value="MostrarTresPrimerosOrdenalfabetico" onclick="MostrarTresPrimerosOrdenalfabetico()">
+    <input type="button" value="EmitirFactura" onclick="EmitirFactura()">
+    <input type="button" value="incrementarVentas" onclick="incrementarVentas()">
+
+
+    Playlist <select id="Playlist"></select>
+
+
+</body>
+
+</html>
