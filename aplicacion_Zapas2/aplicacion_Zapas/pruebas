@@ -1,0 +1,30 @@
+<div id="central" class="Fotos">
+        </div>
+    <div id="nuevaZapatilla">
+        Marca:
+        <input type="text" id="marca"><br> 
+        Modelo:
+        <input type="text" id="modelo"><br>
+        Talla:
+        <input type="text" id="talla"><br>
+        Color:
+        <input type="text" id="color"><br>
+        Stock:
+        <input type="text" id="stock"><br>
+        <button type="button" onclick="addZapatilla()">Grabar</button>
+        <img src="" alt="" onmouseover="" >
+    </div>
+    var divCentral = document.getElementById("central");
+    divCentral.innerHTML = "<h1>Zapatillas</h1><table><tbody></tbody></table>";
+    var tbody = divCentral.getElementsByTagName("tbody")[0];
+    let contador = 0;
+    lista.forEach((zapatilla) => {
+        tbody.innerHTML += `<tr>
+                    <tr><img onmouseout="reducirImg()" onmouseover="aumentarImg()" src="zapa1.avif"/></tr>
+                    <td>${zapatilla.marca}
+                    ${zapatilla.modelo}
+                    ${zapatilla.talla}
+                    ${zapatilla.color}
+                    </td>  
+                    </tr>`;
+    });

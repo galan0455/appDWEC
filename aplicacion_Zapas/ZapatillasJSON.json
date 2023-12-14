@@ -1,0 +1,9 @@
+[
+    {"marca":"Nike","modelo":"air force 1","talla": 42 ,"color":"negro","stock":75},
+    {"marca":"Nike","modelo":"jordan 1","talla": 42 ,"color":"negro","stock":57},
+    {"marca":"Nike","modelo":"air force 2","talla": 42 ,"color":"negro","stock":15},
+    {"marca":"Nike","modelo":"jordan 2","talla": 42 ,"color":"negro","stock":25},
+    {"marca":"nike","modelo":"jordan 3 ","talla":42,"color":"rojo","stock":15},
+    {"marca":"nike","modelo":"jordan 4 ","talla":42,"color":"rojo","stock":1},
+   {"marca":"adwad","modelo":"adwdw","talla":23,"color":"wdad","stock":1}
+]
