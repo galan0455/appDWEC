@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <script src="../DIA23/jquery.js"></script>
+    <script src="./jquery.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
     <script>
         $(document).ready(()=>{
             pedirCoches();
@@ -22,7 +23,7 @@
         }
         function procesarRespuesta(respuesta){
             if (respuesta.estado == "ok"){
-                alert("Coche dado de alta");
+                alert("Operacion realizada con exito");
                 pedirCoches();
             } else {
                 alert(respuesta.mensaje)
@@ -33,6 +34,7 @@
         }
         function pintarCoches(lista){
             let tbody=document.querySelector("table tbody");
+            tbody.innerHTML="";
             lista.forEach(coche => {
                 contenido =`<tr>
                     <td>${coche.marca}</td>
@@ -40,10 +42,39 @@
                     <td>${coche.cilindrada}</td>
                     <td>${coche.fecha}</td>
                     <td><img SRC="../imagenes/${coche.foto}"</td>         
+                    <td><img width='50px' SRC="./papelera.png" onclick="delCoche('${coche.matricula}')"</td>                  
+                    <td><img width='50px' SRC="./fotolapiz.avif" onclick="editarCoche('${coche.matricula}')"</td>                  
                     </tr>`
                 tbody.innerHTML +=contenido; 
             });
         }
+
+        function delCoche(matricula){
+            $.post("delCoche.php",{
+                matricula
+            },procesarRespuesta,"json");
+        }
+
+        function editarCoche(matricula){
+            divEdit=document.getElementById("editar");
+            divEdit += `Marca
+                <input type="text" id="marcaEditado">
+                <br><br>
+                modelo
+                <input type="text" id="modeloEditado">
+                <br><br>
+                cilindrada
+                <input type="text" id="cilindradaEditado">
+                <br><br>
+                fecha
+                <input type="text" id="fechaEditado">
+                <br><br>
+                foto
+                <input type="text" id="fotoEditado">
+
+                <button type="button" id="botonEditar" onclick='confirmarEdicion()'>Edicion</button>`;
+        }
+
     </script>
     <style>
         #nuevoCoche{
@@ -76,5 +107,9 @@
         <tbody>
         </tbody>
     </table>
+    <div id="editar">
+
+    </div>
+    
 </body>
 </html>
