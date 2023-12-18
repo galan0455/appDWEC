@@ -30,12 +30,12 @@
             }
         }
         var listaCoches=[]
-        function pedirCoches(){
-            $.getJSON("consultaCoches.php",{}, (lista)=> {
-                listaCoches = lista;
-                pintarCoches(lista);
-            })
-          
+        async function pedirCoches(){
+            try {
+                let respuesta = await fetch("consultaCoches.php");
+            } catch (error) {
+                
+            }
         }
         function pintarCoches(lista){
             let tbody=document.querySelector("table tbody");
@@ -47,8 +47,8 @@
                     <td>${coche.cilindrada}</td>
                     <td>${coche.fecha}</td>
                     <td><img SRC="../imagenes/${coche.foto}"</td>         
-                    <td><img width='50px' src="./papelera.png" onclick="delCoche('${coche.matricula}')"</td>                                
-                    <td><img width='50px' src="./editar.png" onclick="editarCoche('${coche.matricula}')"</td>                                
+                    <td><img width='50px' SRC="./papelera.png" onclick="delCoche('${coche.matricula}')"</td>                  
+                    <td><img width='50px' SRC="./fotolapiz.avif" onclick="editarCoche('${coche.matricula}')"</td>                  
                     </tr>`
                 tbody.innerHTML +=contenido; 
             });
@@ -60,18 +60,27 @@
             },procesarRespuesta,"json");
         }
 
-        function editarCoche(matricula){
-        let posicion= listaCoches.findIndex((coche)=> matricula === coche.matricula);
-        if (posicion>=0) {
-            $("#matricula").val(matricula).attr("disabled","true");
-            $("#marca").val(listaCoches[posicion].marca);
-            $("#modelo").val(listaCoches[posicion].modelo);
-            $("#fecha").val(listaCoches[posicion].fecha);
-            $("#cilindrada").val(listaCoches[posicion].cilindrada);
-            $("#foto").val(listaCoches[posicion].foto);
+        async function editarCoche(matricula){
+        try {
+            let respuesta= await fetch("editarCoche.php",{
+                method:"POST",
+                body: JSON.stringify(datos),
+                headers: {"Content-Type":"application/json"}
+            });
+        } catch (error) {
+            
         }
         }
-
+        async function anadirCche() {
+            try {
+                let respuesta = await fetch("addCoche.php",{
+                    
+                })
+                
+            } catch (error) {
+                
+            }
+        }
     </script>
     <style>
         #nuevoCoche{
@@ -107,6 +116,6 @@
     <div id="editar">
 
     </div>
-    <img src="./editar.avif">
+    <img src="./editar2.jpg">
 </body>
 </html>
