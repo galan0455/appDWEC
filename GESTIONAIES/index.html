@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+table,tr,td,th{
+border: 1px solid black;
+}
+</style>
+<script>
+
+var listaJugadores = [];
+window.onload=function(){
+   enviarPeticionAJAX("GET","ejercicio6.php",null,gestionarRespuesta);
+}
+function enviarPeticionAJAX(tipo,url,datos,funcionAEjecutar){
+   var xhr = new XMLHttpRequest();
+   xhr.addEventListener('readystatechange',funcionAEjecutar);
+   xhr.open(tipo,url,true);
+   xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+   xhr.send(datos);
+}
+
+function gestionarRespuesta(evento){
+   if(evento.target.readyState == 4 && evento.target.status == 200){
+         var datosJugadores=evento.target.responseText;
+         
+         listaJugadores=JSON.parse(datosJugadores);    
+         console.log(listaJugadores); 
+         
+         /*var listaTrozos=datosJugadores.split(";");
+         listaTrozos.forEach(trozo => {
+         	if (trozo.trim()!=""){
+         		var listaCampos=trozo.split("-");
+	         	var jugador = { "id":listaCampos[0],
+         	                "puesto":listaCampos[1],
+         	                "nombre":listaCampos[2],
+         	                "nacionalidad":listaCampos[3],
+         	                "puntos":listaCampos[4]};
+        	 	listaJugadores.push(jugador);
+         	}
+         }); */
+         mostrarTablaJugadores(listaJugadores);        
+   }
+}
+var listaTitulos=["puesto","nombre","puntos","nacionalidad"];
+var listaCampos=["jugador_puesto","jugador_nombre","jugador_puntos","jugador_nacionalidad"];
+
+function mostrarTablaJugadores(lista){
+   var tabla=document.createElement("table");
+   tabla.id="tablaJugadores";
+   document.body.appendChild(tabla);
+   
+   var fila=document.createElement("tr");
+   tabla.appendChild(fila);
+   
+   for(let i=0;i<listaTitulos.length;i++){
+   	var celda=document.createElement("th");
+	celda.appendChild(document.createTextNode(listaTitulos[i].toUpperCase()));
+	fila.appendChild(celda);
+   }
+
+   lista.forEach( jugador =>
+   {
+	   var fila=document.createElement("tr");
+	   tabla.appendChild(fila);
+   
+	   for(let i=0;i<listaCampos.length;i++){
+   		var celda=document.createElement("td");
+		fila.appendChild(celda);
+		if (listaCampos[i] == "jugador_nombre"){
+		 var enlace=document.createElement("a");
+		 enlace.appendChild(document.createTextNode(jugador[listaCampos[i]]));
+		 celda.appendChild(enlace);
+		 //enlace.href="javascript:mostrarJugador(event)";
+		 enlace.datosJugador=jugador;
+		 enlace.href="#";
+		 enlace.addEventListener("click",mostrarJugador);
+		} else {
+		 celda.appendChild(document.createTextNode(jugador[listaCampos[i]]));
+		}		
+   	   }
+   });
+}
+function mostrarJugador(evento){
+	enviarPeticionAJAX("POST","ejercicio7.php","identificador=" + evento.target.datosJugador.jugador_id,gestionarRespuesta2);
+}
+function gestionarRespuesta2(evento){
+   if(evento.target.readyState == 4 && evento.target.status == 200){
+         var jugador= JSON.parse(evento.target.responseText);
+         alert(jugador.jugador_nacionalidad);
+   }
+}
+</script>
+</head>
+<body>
+</body>
+</html>
+
+
+
+
+
+
+
+

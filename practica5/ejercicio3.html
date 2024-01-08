@@ -5,32 +5,11 @@
 <title>Ejercicio 3</title>
 <script type="text/javascript">
 function anade() {
-    let elementolista = document.getElementById("lista");
-    // forma 1 
-    // let elementoLi = document.createElement("li");
-    // elementoLi.innerHTML="hola";
-    // elementoUl.appendChild(elementoLi);
-    // forma 2 
-    //elementoUl.innerHTML += "<li>Hola </li>";
-
-    // //forma 3 
-    // let elementoLi = document.createElement("li");
-    // elementoLi.appendChild.document.createTextNode("Hola")
-    // elementoUl.insertBefore(elementoli,elementoUl.firstElementChild)
-
-    // forma 4
-
-    elementolista.insertAdjacentHTML("afterbegin","<li>Hola</li>")
-    // forma 5 igual que la cuatro pero añade al final 
-    elementolista.insertAdjacentHTML("beforeend","<li>Hola</li>")
-
-    // forma 6 
-    
-    let elementoLi = document.createElement("li");
-    elementoLi.appendChild.document.createTextNode("Hola")
-    elementolista.insertAdjacentElement("beforeend",elementoLi)
+    let li = document.createElement("li");
+    li.textContent = "hola"
+    let ul = document.getElementById("lista")
+    ul.appendChild(li);
 }
-
 </script>
 </head>
 <body>

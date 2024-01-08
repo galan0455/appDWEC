@@ -3,101 +3,67 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
 <title>Ejercicio 4</title>
-    <css>
-        .centrada{ 
-            left: 25%;
-            width:
-        }
-    </css>
 <script type="text/javascript">
-    onload = () =>{
-        //1
-       let  contador=0;
-       [...document.getElementsByTagName("p")].forEach((parrafo)=>{
-        contador += parrafo.getElementsByTagName("img").length;
-        })
-    console.log(contador)
-
-       //2 
-       console.log(document.querySelectorAll("p img").length);
-
-       // 1
-       console.log(document.querySelectorAll("select")[2].querySelectorAll("option").length)
-       // 2 
-       console.log(document.getElementsByTagName("select")[2].getElementsByTagName("option").length)
-
-       console.log (document.querySelectorAll("p.ejercicio4").length);
-       console.log(document.getElementsByTagName("table")[1].querySelectorAll("td,th").length)
-       console.log(document.querySelectorAll('input[type="text"]').length);
-       console.log(document.getElementsByName("caja1")[0].value);
-       borrarElemento('img',2);
-        borrarElemento('xxx',2);
-        borrarElemento('img',-1);
-
-        document.getElementById("anadir").addEventListener("click",addDiv);
-        document.getElementsByTagName("button")[4].addEventListener("click",addDiv2)
+    onload = ()=>{
+        // // Número de imágenes que estén dentro de un párrafo
+        // alert(document.querySelectorAll("p img").length)
+        // // Número de opciones que tiene el tercer desplegable
+        // alert(document.querySelectorAll("select")[2].getElementsByTagName("option").length)
+        // // Número de párrafos que tengan la clase ejercicio4
+        // alert(document.querySelectorAll("p.ejercicio4").length)
+        // // Número de celdas de la tabla segunda
+        // alert(document.querySelectorAll("table")[1].getElementsByTagName("td").length)
+        // // Número de cajas de texto
+        // alert(document.querySelectorAll("input[type='text']").length)
+        // // Propiedad value del elemento con nombre caja1
+        // alert(document.getElementsByName("caja1")[0].value)
+        // // Propiedad innerHTML del elemento con id parrafo1
+        // alert(document.querySelector("#parrafo1").innerHTML)
+        let botonAniadir = document.getElementById("anadir")
+        botonAniadir.addEventListener("click",aniadir)
+        let boton = document.getElementById("boton2");
+        boton.addEventListener("click",aniadir2)
     }
-    function addDiv() {
-        let valor = document.getElementsByTagName("input")[0].value;
-        const patronURL = /(?:https?):\/\/(\w+:?\w*)?(\S+)(:\d+)?(\/|\/([\w#!:.?+=&%!\-\/]))?/;
-        if (valor.match(patronURL)) {
-            let div=document.createElement("div");
-            div.style.width="200px";
-            div.style.height="200px";
-            let img=document.createElement("img");
-            img.src=valor;
-            div.appendChild(img);
-            document.getElementById("publicidad").appendChild(div);
-            alert ("div creado ")
 
-
-
-
-            document.getElementById("publicidad").innerHTML += 
-            `<div>
-                <img src="${valor}">
-                </div>`
+    function eliminar(etiqueta,numero) {
+        let lista = document.getElementsByTagName(etiqueta);
+        if (lista.length> numero-1) {
+            lista[numero-1].parentNode.removeChild(lista[posicion-1])
         }else{
-            alert ("La url no es valida");
+            alert("No existe esa etiqueta")
         }
     }
-    function addDiv2() {
-        let div=document.getElementById("idDiv2");
-        if (div) {
-            div.style.display="inline";
-        }else{
-            let div=document.createElement("div");
-            div=id="idDiv2"
-            div.style.width="300px";
-            div.style.height="300px";
-            document.body.appendChild(div)
-            let img=document.createElement("img");
-            img.src="./foto1.jpg";
-            div.appendChild(img);
-            let enlace = document.createElement("a");
-            enlace.innerHTML="Cerrar";
-            enlace.href="javascript:OcultarCapa()";
-            div.appendChild(enlace);
+
+    function aniadir() {
+        let url = document.querySelector("form")[0].querySelector("input[type='text']").value
+        let divPublicidad = document.getElementById("publicidad")
+        if (/^(http|https|ftp)\:\/\/[a-z0-9\.-]+\.[a-z]{2,4}/gi.test(url)) {
+            let div200 = document.createElement("div")
+            div200.style = "heigth:200; width:200;"
+            let img = document.createElement("img")
+            img.src = url
+            divPublicidad.appendChild(div200)
+            div200.appendChild(img)
         }
+
     }
-    function OcultarCapa() {
-        document.getElementById("idDiv2").style.display="none";
+    function aniadir2() {
+        let div300 = document.createElement("div")
+        div300.style = "width:300; heigth:300;";
+        let img = document.createElement("img");
+        img.src = "https://i.blogs.es/808765/dpoty-puppy-2nd--c--tracy-kirby-the-kennel-club-2/450_1000.jpg";
+        div300.appendChild(img);
+        let url = document.createElement("a")
+        url.href = "ejercicio4.html"
+        url.textContent = "Cerrar"
+        document.body.appendChild(div300)
+        div300.appendChild(url)
+
     }
-    function borrarElemento(elemento,posicion) {
-        let Objeto=document.getElementsByTagName(elemento)[posicion-1];
-        if (Objeto) {
-            Objeto.remove();
-            alert("se ha realizado la operacion  ");
-        }else{
-            alert ("No se ha encontrado la etiqueta ")
-        }
-    }
-    
 </script>
 </head>
-
+<div id="publicidad"></div>
 <body>
-    <div id='publicidad'></div>
 <form>
 <fieldset>
 URL<input type=text><button type=button id=anadir>AÑADIR</button><button type=button id=cambiar>CAMBIAR</button>
@@ -106,7 +72,7 @@ URL<input type=text><button type=button id=anadir>AÑADIR</button><button type=b
 <form>
 <fieldset>
 <button type=button>BOTON 1</button>
-<button type=button onclick="">BOTON 2</button>
+<button type=button id="boton2">BOTON 2 </button>
 </fieldset>
 </form>
 
@@ -125,7 +91,7 @@ URL<input type=text><button type=button id=anadir>AÑADIR</button><button type=b
 <p>Parrafo 2</p>
 <p>Parrafo<img src="foto1.jpg" width=100 height=100> 3</p>
 <p class=ejercicio4>Parrafo 4</p>
-<p>Parrafo 5</p>
+<p>Parrafo 5 </p>
 Caja 1<input type=text value=HOLA name=caja1>Radio 1 <input type=radio>Checkbox 1 <input type=checkbox><br>
 Caja 2<input type=text>Radio 2 <input type=radio><input type=button><br>
 Caja 3<input type=text>Radio 3 <input type=radio><br>
