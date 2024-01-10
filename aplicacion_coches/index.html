@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="./login.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pilotos</title>
+    <script src="comun.js" type="module"></script>
+    <script src="index.js"></script>
+    
+</head>
+<body>
+    <header>
+        <mi-menu>
+
+        </mi-menu>
+    </header>
+
+    <form action="inicionSesion.php" method="post">
+
+        <div id="inicioSesion" style="border: 2px solid black;" class="visible">
+            <br>
+            <h3>Iniciar Sesión</h3>
+            <br>
+            Dni: <input type="text" id="inicioSesion_Dni"><br><br>
+            Contraseña: <input type="text" id="inicioSesion_contraseña"> <br><br>
+            
+            <button type="button" id="btnI-registro">Registro</button>
+            <button type="button" id="btnI-inicioSesion">Inicio de sesion</button>
+            <br>
+        </div>
+        <br><br>
+        
+    </form>
+
+    <form action="registro.php" method="post">
+            
+        
+        <div id="registro" style="border: 2px solid black;" class="oculto">
+            <br>
+            <h3>Registrarse</h3>
+            <br>
+            Dni: <input type="text" id="registro_dni"> <br><br>
+            Nombre : <input type="text" id="registro_nombre"> <br><br>
+            Apellido : <input type="text" id="registro_apellido"> <br><br>
+            Correo : <input type="text" id="registro_correo"> <br><br>
+            Edad : <input type="text" id="registro_edad"> <br><br>
+            Contraseña : <input type="text" id="registro_contrasenia"> <br><br>
+            <button type="button" id="btnR-registro">Registro</button>
+            <button type="button" id="btnR-inicioSesion">Inicio de sesion</button>
+            <button type="button" id="btnR-modificar">Modificar</button>
+            <br>
+        </div>
+        <br><br>
+
+    </form>
+
+    <form action="modificacion.php" method="post">
+
+        <div id="modificacion" style="border: 2px solid black;" class="oculto">
+            <br>
+            <h3>Modificar</h3>
+            <br>
+            Dni: <input type="text" id="modificar_dni"> <br><br>
+            Nombre : <input type="text" id="modificar_nombre"> <br><br>
+            Apellido : <input type="text" id="modificar_apellido"> <br><br>
+            Correo : <input type="text" id="modificar_correo"> <br><br>
+            Edad : <input type="text" id="modificar_edad"> <br><br>
+            Contraseña : <input type="text" id="modificar_contrasenia"> <br><br>
+            <button type="button" id="btn-modificar">Guardar</button>
+            <br>
+        </div>
+
+    </form>
+</body>
+</html>
