@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KARTING IES EL CAÑAVERAL</title>
+    <link rel="stylesheet" href="login.css">
+    <script src="comun.js" type="module"></script>
+</head>
+<body>
+    <script>
+        function registro(){
+            let InicioSesion=document.getElementById("inicioSesion");
+            let RegistroSesion=document.getElementById("registro");
+            InicioSesion.className="oculto";
+            RegistroSesion.className="visible";
+        }
+    </script>
+    <mi-menu>
+
+    </mi-menu>
+    <div id="inicioSesion" class="visible">
+        Nombre: <input type="text" name="" id=""><br>
+        Apellido: <input type="text" name="" id=""><br>
+        DNI: <input type="text" name="" id=""><br>
+        <button>Iniciar sesion</button><button onclick="registro()">Registrarse</button>
+    </div>
+    <div id="registro" class="oculto">
+        Nombre: <input type="text" name="" id=""><br>
+        Apellido: <input type="text" name="" id=""><br>
+        DNI: <input type="text" name="" id=""><br>
+        <button>Registrarse</button>
+    </div>
+</body>
+</html>
