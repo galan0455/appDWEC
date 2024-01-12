@@ -5,7 +5,7 @@ services:
     ports:
       - 8080:80
     volumes:
-       - $HOME/appDWEC:/var/www/html
+       - /home/alumnotd/appDWEC:/var/www/html
 
     environment:
        - BBDD_USER=root
@@ -20,11 +20,11 @@ services:
       - 1024:3306
     environment:
       - MYSQL_ROOT_PASSWORD=root
-      - MYSQL_DATABASE=database
-      - MYSQL_USER=user
-      - MYSQL_PASSWORD=password
+      - MYSQL_DATABASE=2daw
+      - MYSQL_USER=ferni	
+      - MYSQL_PASSWORD=1234567
     volumes:
-      - $HOME/mysql-data:/var/lib/mysql
+      - ./mysql-data22:/var/lib/mysql
   phpmyadmin:
     image: phpmyadmin/phpmyadmin
     ports:
