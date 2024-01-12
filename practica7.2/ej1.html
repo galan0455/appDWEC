@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        td,div{
+        border-style: double; border-width: 4px;
+        }
+        </style>
+    <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js'></script>
+    <script>
+        
+function rellenar() {
+  var i;
+  for(i=1;i<11;i++){
+    var capa=document.createElement("div");
+    capa.id="capa" + i;
+    capa.class="clase" + i;
+    capa.innerHTML=capa.id;
+
+    for  (j=1;j<4;j++){
+      var parrafo=document.createElement("p");
+      parrafo.innerHTML="parrafo" + j;
+      var imagen=document.createElement("img");
+      imagen.src="foto" + j + ".jpg";
+      var boton=document.createElement("button");
+      boton.innerHTML="Boton" + j;
+
+      capa.appendChild(parrafo);
+      capa.appendChild(imagen);
+      capa.appendChild(boton);
+    }
+
+    var select=document.createElement("select");
+    select.id="select"+j+i;
+
+    for  (j=1;j<6;j++){
+      var opcion=document.createElement("option");
+      opcion.value="opcion"+j;
+      opcion.innerHTML=opcion.value;
+      select.appendChild(opcion);
+    }
+
+    var salto=document.createElement("br");
+    capa.appendChild(salto);
+    capa.appendChild(select);
+    document.body.appendChild(capa);
+  }
+
+  for  (j=1;j<21;j++){
+    var boton=document.createElement("button");
+    boton.id="boton"+j;
+    boton.innerHTML="Boton" + j;
+    document.body.appendChild(boton);
+  }
+
+  var tabla=document.createElement("table");
+  for (i=1;i<11;i++){
+    var fila=document.createElement("tr");
+    for (j=1;j<11;j++){
+      var celda=document.createElement("td");
+      if (i==j) celda.innerHTML="TEXTO";
+      fila.appendChild(celda);
+    }
+    tabla.appendChild(fila);
+  }
+  document.body.appendChild(tabla);
+}
+
+    $(document).ready(function() {
+        $("#boton1").click(ejercicio2)
+        $("#boton2").click(ejercicio3)
+        $("#boton3").click(ejercicio4)
+        $("div:eq(4) p").dblclick()
+    })
+function ejercicio2() {
+    $("img").hide();
+}
+
+function ejercicio3(){
+    $("div:odd img").hide()
+}
+
+function ejercicio4(){
+    $("div:eq(0) select,div:eq(9) select ").css("text-decoration","underline"); 
+}
+
+function ejercicio5(){
+    $("div:eq(4) p").css("background-color","blue")
+}
+
+
+    </script>
+</head>
+<body>
+    <script>
+        rellenar()
+    </script>
+</body>
+</html>
