@@ -5,7 +5,7 @@ services:
     ports:
       - 8080:80
     volumes:
-       - /home/alumnotd/appDWEC:/var/www/html
+       - ./:/var/www/html
 
     environment:
        - BBDD_USER=root
