@@ -64,12 +64,14 @@ function pintarPorTurnos(valorSelect,lista) {
         contenido += `
                     
                         <td "><img src="${curso.curso_imagen}"   style="height:70px; width:70px;"></td>
+
                         <td> Baile${curso.curso_descripcion}
                         <br> Precio:${curso.curso_precio}
                         <br> Dia: ${curso.curso_dia}
                         <br> turno ${curso.curso_horario}
-                        <br> <button type="button" id = "btn-contratar" onclick="contratar(${curso.curso_precio},'${curso.curso_horario}','${curso.curso_dia}')">Contratar</button>
-                        <br> <button type="button" id = "btn-descontratar" onclick="descontratar()">Descontratar</button></td>`
+                        <br> <button type="button" id = "btn-contratar" onclick="contratar(${curso.curso_precio},'${curso.curso_horario}','${curso.curso_dia}',event)">Contratar</button>
+                        <br> <button type="button" id = "btn-descontratar" onclick="descontratar(${curso.curso_precio},'${curso.curso_horario}','${curso.curso_dia}',event)">Descontratar</button>
+                        </td>`
                     
                         i++;
         if (i == 4){
@@ -110,12 +112,15 @@ function pintarPorTurnos(valorSelect,lista) {
 
 //Ahora hare la funcion para contratar una clase 
     var precioTotal=0;
-function contratar(precio,turno,dia) {
+function contratar(precio,turno,dia,event) {
     precioTotal+=precio
+    let boton = event.target
+    boton.disabled = true
     let CostoTotal = document.getElementById("horario").getElementsByTagName("table")[0].getElementsByTagName("tr")[0].getElementsByTagName("th")[0]
     let turnoA = document.getElementById("horario").getElementsByTagName("table")[0].getElementsByTagName("tr")[2].getElementsByTagName("td")
     let turnoB= document.getElementById("horario").getElementsByTagName("table")[0].getElementsByTagName("tr")[3].getElementsByTagName("td") 
     let turnoC= document.getElementById("horario").getElementsByTagName("table")[0].getElementsByTagName("tr")[4].getElementsByTagName("td") 
+
     if (turno=="TURNO A") {
         if (dia=="Lunes") {
             turnoA[0].style = "background-color:white"
@@ -170,6 +175,20 @@ function contratar(precio,turno,dia) {
             turnoC[4].style = "background-color:white"
         }
     }
+    CostoTotal.innerHTML = `COSTE TOTAL: ${precioTotal} euros`
+    let padre = boton.parentNode;
+    let hermano = padre.previousElementSibling
+    let imgTd = hermano.getElementsByTagName("img")[0]
+    $(imgTd).animate({"height":"150","width":"150"},5000)
+    
+}
+
+function descontratar(precio,turno,dia,event) {
+    let botonDesc = event.target
+    let botonCont = botonDesc.previousElementSibling.previousElementSibling
+    botonCont.disabled = false
+    precioTotal=precioTotal-precio
+    let CostoTotal = document.getElementById("horario").getElementsByTagName("table")[0].getElementsByTagName("tr")[0].getElementsByTagName("th")[0]
     CostoTotal.innerHTML = `COSTE TOTAL: ${precioTotal} euros`
     
     
