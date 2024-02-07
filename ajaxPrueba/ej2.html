@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var xhr;
+        function comprobar(evento) {
+            document.querySelector("#boton").disabled=true;
+            xhr = new XMLHttpRequest();
+            xhr.addEventListener("readystatechange",obtenerDatos)
+            xhr.open("GET","ajax.php",true)
+            xhr.send(null);
+        }
+
+        function obtenerDatos(evento) {
+            if (evento.target.readyState == 4 && evento.target.status == 200) {
+                document.querySelector("#boton").disabled=false;
+                document.querySelector("#encabezados").innerHTML = evento.target.getAllResponseHeaders();
+                document.querySelector("#contenido").innerHTML = evento.target.responseText;
+            }else{
+                alert("Ha habido un error "+ evento.target.responseText);
+                document.querySelector("#boton").disabled=false;
+            }
+        }
+    </script>
+</head>
+<body>
+    <button type="button" onclick="comprobar(event)" id="boton">Hola</button>
+    <div id="encabezados">
+
+    </div>
+    <div id="contenido">
+        
+
+    </div>
+</body>
+</html>

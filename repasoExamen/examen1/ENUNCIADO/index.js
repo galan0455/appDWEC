@@ -1,9 +1,10 @@
 onload = ()=>{
     cargarPersonas()
     rellenarTabla()
-    setInterval(mostrarDivPorSegundos,5000)
+    setInterval(mostrarDivPorSegundos,100)
     let selectPersonas = document.getElementById("divPersonas").getElementsByTagName("select")[1]
     selectPersonas.addEventListener("change",mostrarPista)
+    cambiarPagina()
 }
 
 function cargarPersonas() {
@@ -81,8 +82,15 @@ var clicksErrones = 0
         let listaDiv = document.getElementById("divTablero").
         getElementsByTagName("tbody")[0].getElementsByTagName("div")
 
-            listaDiv[contadorDivs].className = "visible"
-            contadorDivs++;
+            if (contadorDivs<listaDiv.length) {
+                listaDiv[contadorDivs].className = "visible"
+                contadorDivs++;
+            }else{
+                contadorDivs==listaDiv.length
+            }
+            if (contadorDivs== listaDiv.length) {
+                window.location.href = "resultados.html"
+            }
 
     }
 
@@ -95,3 +103,5 @@ var clicksErrones = 0
         })
         Select.removeEventListener("click",mostrarPista)
     }
+
+    
